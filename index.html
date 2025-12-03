@@ -134,7 +134,7 @@
         }
 
         .flag-ml {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path d="M0 0h60v30H0z" fill="#138808"/><path d="M0 0h60v10H0z"/><path d="M0 20h60v10H0z" fill="#FF9933"/><circle cx="30" cy="15" r="4" fill="#000080"/><circle cx="30" cy="15" r="3.5" fill="#fff"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org2000/svg" viewBox="0 0 60 30"><path d="M0 0h60v30H0z" fill="#138808"/><path d="M0 0h60v10H0z"/><path d="M0 20h60v10H0z" fill="#FF9933"/><circle cx="30" cy="15" r="4" fill="#000080"/><circle cx="30" cy="15" r="3.5" fill="#fff"/></svg>');
         }
 
         @keyframes fadeInDown {
@@ -693,6 +693,146 @@
             color: var(--primary-color);
         }
 
+        /* Download Section Styles */
+        .download-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--success-color);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+
+        .download-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-icon {
+            background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .app-info h3 {
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+        }
+
+        .app-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .meta-item i {
+            color: var(--success-color);
+        }
+
+        .download-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            align-items: center;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--success-color), #229954);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+            flex: 1;
+            min-width: 250px;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(135deg, #229954, var(--success-color));
+        }
+
+        .qr-code {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 0 0 auto;
+        }
+
+        .qr-code img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
+        }
+
+        .qr-code p {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .app-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+
+        .app-feature i {
+            color: var(--secondary-color);
+        }
+
+        .security-note {
+            background: #fff9e6;
+            border-left: 4px solid var(--warning-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .security-note i {
+            color: var(--warning-color);
+        }
+
         @media (max-width: 768px) {
             .container {
                 margin: 0 10px;
@@ -724,6 +864,24 @@
 
             .app-screen {
                 min-width: 100%;
+            }
+
+            .download-section {
+                padding: 1.5rem;
+            }
+
+            .download-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .download-btn {
+                min-width: 100%;
+            }
+
+            .app-meta {
+                flex-direction: column;
+                gap: 5px;
             }
         }
     </style>
@@ -825,6 +983,10 @@
                     <a href="#notes" class="nav-card">
                         <h4>Note Pad</h4>
                         <p>Personal notes and reminders</p>
+                    </a>
+                    <a href="#download" class="nav-card">
+                        <h4>Download App</h4>
+                        <p>Get the latest version</p>
                     </a>
                     <a href="#troubleshooting" class="nav-card">
                         <h4>Troubleshooting</h4>
@@ -1267,12 +1429,100 @@
                 </div>
             </div>
             
+            <!-- Download Application Section -->
+            <div class="section" id="download">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h2>8. Download Application</h2>
+                </div>
+                
+                <div class="download-section">
+                    <div class="download-header">
+                        <div class="download-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div class="app-info">
+                            <h3>KNT SteelWorks Mobile App</h3>
+                            <p>Streamline your steelworks business management with our feature-rich mobile application.</p>
+                            <div class="app-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Android 8.0+</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>Version 2.0.1</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Updated: Dec 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="app-features">
+                        <div class="app-feature">
+                            <i class="fas fa-users"></i>
+                            <span>Worker Management</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-handshake"></i>
+                            <span>Contractor Tracking</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Advanced Reports</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-file-export"></i>
+                            <span>PDF Export</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-search"></i>
+                            <span>Smart Search</span>
+                        </div>
+                        <div class="app-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Offline Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="download-cta">
+                        <a href="https://drive.google.com/file/d/1WPn55YpLbdxhIFVeseFJzP1LUZmBfWph/view?usp=drivesdk" class="download-btn" target="_blank">
+                            <i class="fas fa-download"></i>
+                            Download Now
+                        </a>
+                        
+                        <div class="qr-code">
+                            <div style="width: 120px; height: 120px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                <i class="fas fa-qrcode" style="font-size: 3rem; color: #ccc;"></i>
+                            </div>
+                            <p>Scan for direct download</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>Secure Download:</strong> This app is distributed through Google Drive for security. Make sure you're downloading from this official manual only.
+                        </div>
+                    </div>
+                    
+                    <div class="tip" style="margin-top: 1.5rem;">
+                        <strong>Installation Instructions:</strong> After downloading the APK file, you may need to allow installation from "Unknown Sources" in your Android settings. This is a standard security measure for direct APK installations.
+                    </div>
+                </div>
+            </div>
+            
             <div class="section" id="tips">
                 <div class="section-header">
                     <div class="section-icon">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h2>8. Tips & Best Practices</h2>
+                    <h2>9. Tips & Best Practices</h2>
                 </div>
                 
                 <div class="feature-list">
@@ -1297,8 +1547,6 @@
                         <p>Leverage the search function in Manage Data to quickly find entries instead of scrolling.</p>
                     </div>
                 </div>
-                
-                
             </div>
             
             <div class="section" id="troubleshooting">
@@ -1306,7 +1554,7 @@
                     <div class="section-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h2>9. Troubleshooting</h2>
+                    <h2>10. Troubleshooting</h2>
                 </div>
                 
                 <p>If you encounter issues with the app, refer to this troubleshooting guide:</p>
@@ -1346,6 +1594,11 @@
                         <td>Can't find search function</td>
                         <td>Wrong section</td>
                         <td>Search is only available in <strong>Manage Data</strong> section</td>
+                    </tr>
+                    <tr>
+                        <td>Can't install downloaded app</td>
+                        <td>Unknown sources blocked</td>
+                        <td>Enable "Install from Unknown Sources" in Android security settings</td>
                     </tr>
                 </table>
                 
@@ -1551,6 +1804,20 @@
                 this.alt = 'Image not available';
             });
         });
+
+        // Generate QR Code for download link
+        function generateQRCode() {
+            const qrContainer = document.querySelector('.qr-code div');
+            if (qrContainer) {
+                const downloadUrl = 'https://drive.google.com/file/d/1WPn55YpLbdxhIFVeseFJzP1LUZmBfWph/view?usp=drivesdk';
+                // In a real implementation, you would use a QR code library here
+                // For now, we'll keep the placeholder icon
+                console.log('QR Code would be generated for:', downloadUrl);
+            }
+        }
+
+        // Initialize QR code on page load
+        window.addEventListener('DOMContentLoaded', generateQRCode);
     </script>
 </body>
 </html>
